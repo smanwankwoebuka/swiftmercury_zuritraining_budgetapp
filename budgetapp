@@ -1,0 +1,76 @@
+class budget:
+    def __init__(self):
+        self.budget=float(input('How much is your budget for food, clothing and entertainment?\n'))
+        print(f'your total budget for food, clothing and entertainment is {self.budget}')
+        
+    def deposit(self):
+        deposit=str(input('From which of these categories: Food, Clothing, Entertainment would you like to deposit funds to?\n'))
+        if deposit == 'Food':
+            cash_deposit=float(input(f'How much would you like to deposit into {deposit} category?\n'))
+            print(f'your deposit of {cash_deposit} into {deposit} is successful!')
+        elif deposit=='Clothing':
+            cash_deposit=float(input(f'How much would you like to deposit into {deposit} category?\n'))
+            print(f'your deposit of {cash_deposit} into {deposit} is successful!')
+        elif deposit=='Entertainment':
+            cash_deposit=float(input(f'How much would you like to deposit into {deposit} category?\n'))
+            print(f'your deposit of {cash_deposit} into {deposit} is successful!')
+        else:
+            print('Enter either Food, Clothing or Entertainment')
+            
+    def withdraw(self):
+        self.compute()
+        total_balance =self.budget
+        food_balance=self.budget * 0.5
+        clothing_balance=self.budget * 0.25
+        entertainment_balance=self.budget * 0.25
+        withdraw=input('From which of these categories: Food, Clothing and Entertainment would you like to withdraw from?\n')
+        if withdraw== 'Food':
+            cash_withdraw=float(input(f'How much would you like to withdraw from {withdraw} category?\n'))
+            if cash_withdraw <= food_balance:
+                balance=food_balance - cash_withdraw
+                print(f'your withdrawal of {cash_withdraw} from {withdraw} is successful!')
+                print(f'Your current food balance is:{balance}')
+            else:
+                print('insufficient balance')
+        elif withdraw == 'Clothing':
+            cash_withdraw=float(input(f'How much would you like to withdraw from {withdraw} category?\n'))
+            if cash_withdraw <= clothing_balance:
+                balance= clothing_balance - cash_withdraw
+                print(f'your withdrawal of {cash_withdraw} from {withdraw} is successful!')
+                print(f'Your current clothing balance is:{balance}')
+            else:
+                print('insufficient balance')
+        elif withdraw == 'Entertainment':
+            cash_withdraw=float(input(f'How much would you like to withdraw from {withdraw} category?\n'))
+            if cash_withdraw <= entertainment_balance:
+                balance= entertainment_balance - cash_withdraw
+                print(f'your withdrawal of {cash_withdraw} from {withdraw} is successful!')
+                print(f'Your current entertainment balance is:{balance}')
+            else:
+                print('insufficient balance')
+        else:
+            print('Enter either Food, Clothing or Entertainment')
+            
+
+    def compute(self):
+        print('this app follows the 50-25-25 budget rule.')
+        total_balance =self.budget
+        food_balance=self.budget * 0.5
+        clothing_balance=self.budget * 0.25
+        entertainment_balance=self.budget * 0.25
+        print(f'Your total balance is: {total_balance}')
+        print(f'Your food balance is: {food_balance}')
+        print(f'Your clothing balance is: {clothing_balance}')
+        print(f'Your entertainment balance is: {entertainment_balance}')
+
+    def transfer(self):
+        transfer_from=input('which of these categories: food, clothing and entertainment do you want to transfer from?\n')
+        transfer_to=input('which of these categories: food, clothing and entertainment do you like to transfer to?\n')
+        transfer=float(input('How much would you like to transfer?\n'))
+        print(f'Your transfer of {transfer} from {transfer_from} to {transfer_to} is successful')
+
+
+budget().deposit()
+budget().withdraw()
+budget().compute()
+budget().transfer()
